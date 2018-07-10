@@ -1,3 +1,13 @@
-infra/secrets.tfvars
-infra/.terraform
+# Terraform
 .terraform
+infra/secrets.tfvars
+
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Webpack directories
+.webpack
