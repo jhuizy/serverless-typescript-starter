@@ -11,6 +11,15 @@ provider "aws" {
   region = "${var.region}"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "recipes-serverless-tfstate"
+    key    = "tfstate"
+    region = "ap-southeast-2"
+  }
+}
+
+
 module "github_ci" {
   source  = "github.com/squidfunk/terraform-aws-github-ci"
   version = "0.5.2"
@@ -19,4 +28,5 @@ module "github_ci" {
   github_owner       = "jhuizy"
   github_repository  = "recipes-serverless"
   github_oauth_token = "${var.github_oauth_token}"
+  codebuild_bucket = "recipes-ci-artifacts"
 }
