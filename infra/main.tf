@@ -29,4 +29,5 @@ module "github_ci" {
   github_repository  = "recipes-serverless"
   github_oauth_token = "${var.github_oauth_token}"
   codebuild_bucket = "recipes-ci-artifacts"
+  codebuild_image  = "aws/codebuild/nodejs:8.11.0"
 }
